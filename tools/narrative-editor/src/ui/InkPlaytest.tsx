@@ -24,7 +24,7 @@ export const InkPlaytest: React.FC = () => {
     const output: string[] = [];
     const tags: string[] = [];
     while (ink.story.canContinue) {
-      const line = ink.story.Continue().trimEnd();
+      const line = ink.story.Continue()?.trimEnd() || '';
       if (line) output.push(line);
       const currentTags = ink.story.currentTags ?? [];
       for (const t of currentTags) tags.push(t);
